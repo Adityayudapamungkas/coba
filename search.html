@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5210411308 | Search Film</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
+    crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #00274E 0%, #00274E 33%, #0D65A1 33%, #0D65A1 66%, #BCCCD7 66%, #BCCCD7 100%);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(45deg, #0D65A1, #BCCCD7);
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+
+        .navbar {
+            background: linear-gradient(45deg,  #BCCCD7,#0D65A1);
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar-item {
+            margin-left: 20px;
+            list-style: none;
+            margin-right: 100px;
+        }
+
+        .navbar-item a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .navbar-items ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap; 
+            margin: 0;
+        }
+
+        .logo {
+            display: flex;
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .movie-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .movie-item {
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .movie-item img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .movie-item p {
+            margin: 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        #movieResult h1 {
+            color: #fff;
+            font-family: cursive;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="vector_telepon.png">
+        <div>&nbsp;&nbsp;Telepon : (+62) 88225013258&nbsp;&nbsp;</div>
+        <img src="vector_email.png">
+        <div>&nbsp;&nbsp;Email : adityapamungkas058@gmail.com</div>
+    </header>
+    <div class="navbar">
+        <div class="logo">
+            <img srcset="logo.png" height="50px">
+        </div>
+        <div class="navbar-items">
+            <ul>
+                <li class="navbar-item"><a href="index.html">Beranda</a></li>
+                <li class="navbar-item"><a href="search.html">Film</a></li>
+                <li class="navbar-item"><a href="#">Tentang Kami</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="movieTitle" placeholder="Cari Film Disini!">
+        <button onclick="searchMovie()">Search</button>
+        <br><br><br>
+        <div id="movieResult" class="movie-container"></div>
+        
+    
+    <script>
+        function searchMovie(){
+            let apikey = '84013a68'
+            let movieTitle = $('#movieTitle').val()
+
+            $.ajax({
+                url : 'http://www.omdbapi.com/',
+                method : 'GET',
+                type : 'json',
+                data : {apikey : '84013a68', s : movieTitle},
+
+                success : function(result) {
+                    if (result.Response == 'True'){
+
+                        $('#movieResult').empty()
+
+                        result.Search.forEach(function(movie) {
+                            let movieData = `
+                                <div class="movie-item">
+                                    <img src='${movie.Poster}' alt='${movie.Title} Poster'>
+                                    <p><strong>${movie.Title}</strong></p>
+                                    <br>    
+                                    <p><strong>${movie.Type}</strong></p>
+                                </div>
+                            `
+                            $('#movieResult').append(movieData)
+                        })
+
+                    } else {
+                        $('#movieResult').html('<h1>Film Tidak Ditemukan!</h1>')
+                    }
+                }
+            })
+        }
+    </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5210411308 | Home</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" 
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
+    crossorigin="anonymous"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-rows: auto auto 1fr;
+            background: linear-gradient(45deg, #00274E 0%, #00274E 33%, #0D65A1 33%, #0D65A1 66%, #BCCCD7 66%, #BCCCD7 100%);
+        }
+
+        header {
+            background: linear-gradient(45deg, #0D65A1, #BCCCD7);
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .navbar {
+            background: linear-gradient(45deg,  #BCCCD7, #0D65A1);
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar-item {
+            margin-left: 20px;
+            list-style: none;
+            margin-right: 100px;
+        }
+
+        .navbar-item a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .navbar-items ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap; 
+            margin: 0;
+        }
+
+        .navbar-item a:hover {
+            color: #fff;
+            background-color: #0D65A1;
+        }
+
+        .logo {
+            display: flex;
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-left: 20px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100vh;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .text-container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            margin-top: -100px;
+            margin-left: 10px;
+            font-family: cursive;
+            color: #fff;
+            line-height: 1.0; 
+            font-size: 16px; 
+        }
+
+
+        .image-container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            max-width: 45%;
+            height: auto;
+            margin-top: -20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="vector_telepon.png">
+        <div>&nbsp;&nbsp;Telepon : (+62) 88225013258&nbsp;&nbsp;</div>
+        <img src="vector_email.png">
+        <div>&nbsp;&nbsp;Email : adityapamungkas058@gmail.com</div>
+    </header>
+    <div class="navbar">
+        <div class="logo">
+            <img srcset="logo.png" height="50px">
+        </div>
+        <div class="navbar-items">
+            <ul>
+                <li class="navbar-item"><a href="home.html">Beranda</a></li>
+                <li class="navbar-item"><a href="search.html">Film</a></li>
+                <li class="navbar-item"><a href="#">Tentang Kami</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-container">
+            <h1>SELAMAT DATANG DI WESBITE KAMI!</h1>
+            <h1>SILAHKAN MENIKMATI FILMNYA!</h1>
+            <h1>ENJOY!</h1>
+        </div>
+        <div class="image-container">
+            <img src="logo.png" alt="Ilustrasi Image">
+        </div>
+    </div>
+</body>
+</html>
